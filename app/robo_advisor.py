@@ -16,7 +16,7 @@ def to_usd(my_price):
 print("REQUESTING SOME DATA FROM THE INTERNET...")
 API_KEY = os.getenv("ALPHAVANTAGE_API_KEY", default = "OOPS")
 
-SYMBOL = "TSLA" #todo: ask for consumer input
+SYMBOL = "TSLA" #TODO: ask for consumer input
 
 request_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={SYMBOL}&apikey={API_KEY}"
 
@@ -29,7 +29,13 @@ parsed_response = json.loads(response.text)
 
 last_refreshed = parsed_response["Meta Data"]["3. Last Refreshed"]
 
-latest_close = parsed_response["Time Series (Daily)"]["2020-02-19"]["4. close"]
+tsd = parsed_response["Time Series (Daily)"]
+
+dates = list(tsd.keys()) #TODO: sort to ensure latest day is first
+
+latest_day = dates[0] #"2020-02-19"
+
+latest_close = tsd[latest_day]["4. close"]
 
 #print("URL:", request_url)
 #print(type(response.text)) #> str
