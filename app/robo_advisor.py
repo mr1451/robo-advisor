@@ -1,9 +1,11 @@
 # app/robo_advisor.py
 
-import requests
 import csv
 import json
 import os
+
+import requests
+
 from dotenv import load_dotenv
 
 load_dotenv()

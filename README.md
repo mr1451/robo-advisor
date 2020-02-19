@@ -23,7 +23,7 @@ pip install -r requirements.txt
 Clone or download [this repository] (https://github.com/mr1451/robo-advisor) onto your computer. Then navigate there from the command line:
 
 ```sh
-cd robo-advispr
+cd robo-advisor
 ```
 
 ### API Setup
