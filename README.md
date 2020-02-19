@@ -1,4 +1,7 @@
-# robo-advisor
+### Robo Advisor Project
+
+Solution for: https://github.com/prof-rossetti/georgetown-opim-243-201901/blob/master/projects/robo-advisor.md
+
 
 ### Environment Setup
 
@@ -14,6 +17,21 @@ From within the virtual environment, install the required packages specified in 
 ```sh
 pip install -r requirements.txt
 ```
+
+### Installation
+
+Clone or download [this repository] (https://github.com/mr1451/robo-advisor) onto your computer. Then navigate there from the command line:
+
+```sh
+cd robo-advispr
+```
+
+### API Setup
+
+Visit https #todo 
+
+Create a new file in this 
+
 
 ### Usage
 
