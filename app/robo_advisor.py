@@ -19,7 +19,7 @@ def to_usd(my_price):
 while True:
     SYMBOL = input("Please input a stock symbol:")
     if SYMBOL.isalpha() and len(SYMBOL) > 2 and len(SYMBOL) < 6 :
-        break
+        break  
     else:
         print("Please enter a stock symbol that is 3 to 5 characters, only letters A-Z.")
 
@@ -38,8 +38,7 @@ parsed_response = json.loads(response.text)
 #if error message occurs
 
 if "Error Message" in response.text:
-    print("OOPS, couldn't find that symbol. Please try again!")
-    exit()
+    print("Oops, couldn't find that symbol. Please run the program again!")
 
 last_refreshed = parsed_response["Meta Data"]["3. Last Refreshed"]
 
@@ -93,7 +92,6 @@ with open(csv_file_path, "w") as csv_file: # "w" means "open the file for writin
 import datetime
 now = datetime.datetime.now()
 
-
 print("-------------------------")
 print(f"SELECTED SYMBOL: {SYMBOL}")
 print("-------------------------")
@@ -106,8 +104,21 @@ print(f"LATEST CLOSE: {to_usd(float(latest_close))}")
 print(f"RECENT HIGH: {to_usd(float(recent_high))}")
 print(f"RECENT LOW: {to_usd(float(recent_low))}")
 print("-------------------------")
-print("RECOMMENDATION: BUY!")
-print("RECOMMENDATION REASON: TODO")
+
+a = float(latest_close)
+b = float(recent_high)
+c = float (recent_low)
+d = c*1.2 
+
+print(d)
+
+if a <= d: 
+    print("RECOMMENDATION: BUY!")
+    print("RECOMMENDATION REASON: THE STOCK HAS SUFFICIENT GROWTH POTENTIAL TO SUGGEST INVESTING.")
+else:
+    print("RECOMMENDATION: DONT BUY!")
+    print("RECOMMENDATION REASON: THE STOCK DOES NOT HAVE SUFFICIENT GROWTH POTENTIAL TO SUGGEST INVESTING.")
+
 print("-------------------------")
 print(f"WRITING DATA TO CSV: {csv_file_path}...")
 print("-------------------------")
