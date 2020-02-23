@@ -39,6 +39,7 @@ parsed_response = json.loads(response.text)
 
 if "Error Message" in response.text:
     print("Oops, couldn't find that symbol. Please run the program again!")
+    exit()
 
 last_refreshed = parsed_response["Meta Data"]["3. Last Refreshed"]
 
