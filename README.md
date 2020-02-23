@@ -23,15 +23,12 @@ pip install -r requirements.txt
 Clone or download [this repository] (https://github.com/mr1451/robo-advisor) onto your computer. Then navigate there from the command line:
 
 ```sh
-cd robo-advisor
+cd Desktop/robo-advisor
 ```
 
 ### API Setup
 
-Visit https #todo 
-
-Create a new file in this 
-
+Visit https://www.alphavantage.co/documentation/#daily and claim your free API key at the following link: https://www.alphavantage.co/support/#api-key. From there, create a .env file in and copy and paste ALPHAVANTAGE_API_KEY = "Z768MPA4BB9AO8XH" into it.
 
 ### Usage
 

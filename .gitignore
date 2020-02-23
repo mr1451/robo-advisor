@@ -1,6 +1,8 @@
+# .gitignore
+
 .DS_Store
 .env
 
+# Ignore our secret credentials.
 
-#ignore our secret credentials
-auth/google-credentials.json
+auth/google-credentials.jsons
