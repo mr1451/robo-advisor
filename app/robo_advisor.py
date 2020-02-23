@@ -3,7 +3,7 @@
 import csv
 import json
 import os
-
+import sys
 import requests
 
 from dotenv import load_dotenv
@@ -18,8 +18,10 @@ def to_usd(my_price):
 
 while True:
     SYMBOL = input("Please input a stock symbol:")
-    if SYMBOL.isalpha() and len(SYMBOL) > 2 and len(SYMBOL) < 6 :
-        break  
+    if SYMBOL == "MIKE":
+        print("Hi, Professor Rossetti! Python rules! :)")
+    elif SYMBOL.isalpha() and len(SYMBOL) > 2 and len(SYMBOL) < 6 :
+        break
     else:
         print("Please enter a stock symbol that is 3 to 5 characters, only letters A-Z.")
 
@@ -111,14 +113,12 @@ recent_high_var = float(recent_high)
 recent_low_var = float (recent_low)
 determinant = recent_low_var*1.2 
 
-#print(d)
-
 if latest_close_var <= determinant: 
     print("RECOMMENDATION: BUY!")
-    print("RECOMMENDATION REASON: THE STOCK HAS SUFFICIENT GROWTH POTENTIAL TO SUGGEST INVESTING.")
+    print("REASON: THE STOCK HAS SUFFICIENT GROWTH POTENTIAL TO SUGGEST INVESTING.")
 else:
     print("RECOMMENDATION: DON'T BUY!")
-    print("RECOMMENDATION REASON: THE STOCK DOES NOT HAVE SUFFICIENT GROWTH POTENTIAL TO SUGGEST INVESTING.")
+    print("REASON: THE STOCK DOES NOT HAVE SUFFICIENT GROWTH POTENTIAL TO SUGGEST INVESTING.")
 
 print("-------------------------")
 print(f"WRITING DATA TO CSV: {csv_file_path}...")
