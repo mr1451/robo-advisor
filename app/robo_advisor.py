@@ -106,18 +106,18 @@ print(f"RECENT HIGH: {to_usd(float(recent_high))}")
 print(f"RECENT LOW: {to_usd(float(recent_low))}")
 print("-------------------------")
 
-a = float(latest_close)
-b = float(recent_high)
-c = float (recent_low)
-d = c*1.2 
+latest_close_var = float(latest_close)
+recent_high_var = float(recent_high)
+recent_low_var = float (recent_low)
+determinant = recent_low_var*1.2 
 
-print(d)
+#print(d)
 
-if a <= d: 
+if latest_close_var <= determinant: 
     print("RECOMMENDATION: BUY!")
     print("RECOMMENDATION REASON: THE STOCK HAS SUFFICIENT GROWTH POTENTIAL TO SUGGEST INVESTING.")
 else:
-    print("RECOMMENDATION: DONT BUY!")
+    print("RECOMMENDATION: DON'T BUY!")
     print("RECOMMENDATION REASON: THE STOCK DOES NOT HAVE SUFFICIENT GROWTH POTENTIAL TO SUGGEST INVESTING.")
 
 print("-------------------------")
