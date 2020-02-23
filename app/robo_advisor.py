@@ -31,9 +31,6 @@ API_KEY = os.getenv("ALPHAVANTAGE_API_KEY", default = "OOPS")
 request_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={SYMBOL}&apikey={API_KEY}"
 
 response = requests.get(request_url)
-#print(type(response))
-#print(response.status_code)å
-#print(response.text)
 
 parsed_response = json.loads(response.text)
 
@@ -67,12 +64,7 @@ for date in dates:
 recent_high = max(high_prices)
 recent_low = min(low_prices)
 
-#print("URL:", request_url)
-#print(type(response.text)) #> str
-
 # INFO OUTPUTS
-
-#csv_file_path = "data/prices.csv" # a relative filepath
 
 csv_file_path = os.path.join(os.path.dirname(__file__), "..", "data", "prices.csv")
 
