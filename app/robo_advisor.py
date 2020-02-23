@@ -30,10 +30,16 @@ request_url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&sym
 
 response = requests.get(request_url)
 #print(type(response))
-#print(response.status_code)
+#print(response.status_code)å
 #print(response.text)
 
 parsed_response = json.loads(response.text)
+
+#if error message occurs
+
+if "Error Message" in response.text:
+    print("OOPS, couldn't find that symbol. Please try again!")
+    exit()
 
 last_refreshed = parsed_response["Meta Data"]["3. Last Refreshed"]
 
@@ -61,12 +67,6 @@ recent_low = min(low_prices)
 
 #print("URL:", request_url)
 #print(type(response.text)) #> str
-
-#if error message occurs
-
-if "Error Message" in response.text:
-    print("OOPS, couldn't find that symbol. Please try again!")
-    exit()
 
 # INFO OUTPUTS
 
