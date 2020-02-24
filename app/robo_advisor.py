@@ -4,6 +4,8 @@ import csv
 import json
 import os
 import requests
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
 
 from dotenv import load_dotenv
 
@@ -23,6 +25,8 @@ while True:
         break
     else:
         print("Please enter a stock symbol that is 3 to 5 characters, only letters A-Z.")
+
+SEND_ADDRESS = input("Please input your email:")
 
 print("REQUESTING SOME DATA FROM THE INTERNET...")
 API_KEY = os.getenv("ALPHAVANTAGE_API_KEY", default = "OOPS")
@@ -116,3 +120,26 @@ print(f"WRITING DATA TO CSV: {csv_file_path}...")
 print("-------------------------")
 print("HAPPY INVESTING!")
 print("-------------------------")
+
+#---------------------------------------------------------------------------------------------------------
+
+if recent_high_var >= latest_close_var * 1.10:
+    SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "OOPS, please set env var called 'SENDGRID_API_KEY'")
+    MY_ADDRESS = os.environ.get("MY_EMAIL_ADDRESS", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")
+    client = SendGridAPIClient(SENDGRID_API_KEY) #> <class 'sendgrid.sendgrid.SendGridAPIClient>
+    print("CLIENT:", type(client))
+    subject = f"PRICE MOVEMENT ALERT: {SYMBOL} UP MORE THAN 5%"
+    html_content = f"Hey there! We are sending this message to inform you that {SYMBOL}, the stock you are tracking, has recently surpassed its latest closing price by more than 10%. This is a stock to watch -- happy investing!"
+    print("HTML:", html_content)
+    message = Mail(from_email=MY_ADDRESS, to_emails=SEND_ADDRESS, subject=subject, html_content=html_content)
+    try:
+        response = client.send(message)
+
+        print("RESPONSE:", type(response)) #> <class 'python_http_client.client.Response'>
+        print(response.status_code) #> 202 indicates SUCCESS
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        print("OOPS", e.message)
+else:
+    exit()

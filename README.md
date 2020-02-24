@@ -26,9 +26,13 @@ Clone or download [this repository] (https://github.com/mr1451/robo-advisor) ont
 cd Desktop/robo-advisor
 ```
 
-### API Setup
+### AlphaVantage API Setup
 
-Visit https://www.alphavantage.co/documentation/#daily and claim your free API key at the following link: https://www.alphavantage.co/support/#api-key. From there, create a .env file in and copy and paste ALPHAVANTAGE_API_KEY = "Z768MPA4BB9AO8XH" into it.
+Claim your free API key at the following link: https://www.alphavantage.co/support/#api-key. From there, create a .env file in Desktop/robo-advisor and copy and paste ALPHAVANTAGE_API_KEY = "Z768MPA4BB9AO8XH" into it.
+
+### SendGrid API Setup
+
+Sign up for a free SendGrid account at https://signup.sendgrid.com/. Then, create an API key with "full access permissions" at https://app.sendgrid.com/settings/api_keys. Store the API Key value in the .env file in Desktop/robo-advisor called SENDGRID_API_KEY. Also set an environment variable called MY_EMAIL_ADDRESS to be the email address you just associated with your SendGrid account (e.g. "mr1451@georgetown.edu").
 
 ### Usage
 
