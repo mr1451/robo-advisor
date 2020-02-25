@@ -128,7 +128,7 @@ if recent_high_var >= latest_close_var * 1.10:
     MY_ADDRESS = os.environ.get("MY_EMAIL_ADDRESS", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")
     client = SendGridAPIClient(SENDGRID_API_KEY) #> <class 'sendgrid.sendgrid.SendGridAPIClient>
     print("CLIENT:", type(client))
-    subject = f"PRICE MOVEMENT ALERT: {SYMBOL} UP MORE THAN 5%"
+    subject = f"PRICE MOVEMENT ALERT: {SYMBOL} UP MORE THAN 10%"
     html_content = f"Hey there! We are sending this message to inform you that {SYMBOL}, the stock you are tracking, has recently surpassed its latest closing price by more than 10%. This is a stock to watch -- happy investing!"
     print("HTML:", html_content)
     message = Mail(from_email=MY_ADDRESS, to_emails=SEND_ADDRESS, subject=subject, html_content=html_content)
