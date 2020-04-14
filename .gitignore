@@ -1,8 +1,14 @@
 # .gitignore
 
+# Ignore byproducts of testing file
+.pytest_cache
+__pycache__
+
 .DS_Store
 .env
 
 # Ignore our secret credentials.
 
 auth/google-credentials.jsons
+
+prices.csv

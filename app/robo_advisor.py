@@ -4,8 +4,8 @@ import csv
 import json
 import os
 import requests
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+#from sendgrid import SendGridAPIClient
+#from sendgrid.helpers.mail import Mail
 
 from dotenv import load_dotenv
 
