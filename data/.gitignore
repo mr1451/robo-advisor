@@ -9,3 +9,5 @@
 
 # except this gitignore file:
 !.gitignore
+
+prices.csv

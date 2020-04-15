@@ -10,5 +10,3 @@ __pycache__
 # Ignore our secret credentials.
 
 auth/google-credentials.jsons
-
-prices.csv
