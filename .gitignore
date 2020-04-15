@@ -1,5 +1,9 @@
 # .gitignore
 
+# Ignore byproducts of testing file
+.pytest_cache
+__pycache__
+
 .DS_Store
 .env
 

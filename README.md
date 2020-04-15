@@ -2,6 +2,13 @@
 
 Solution for: https://github.com/prof-rossetti/georgetown-opim-243-201901/blob/master/projects/robo-advisor.md
 
+### Installation
+
+Clone or download [this repository] (https://github.com/mr1451/robo-advisor) onto your computer. Then navigate there from the command line:
+
+```sh
+cd Desktop/robo-advisor
+```
 
 ### Environment Setup
 
@@ -16,14 +23,6 @@ From within the virtual environment, install the required packages specified in 
 
 ```sh
 pip install -r requirements.txt
-```
-
-### Installation
-
-Clone or download [this repository] (https://github.com/mr1451/robo-advisor) onto your computer. Then navigate there from the command line:
-
-```sh
-cd Desktop/robo-advisor
 ```
 
 ### AlphaVantage API Setup
