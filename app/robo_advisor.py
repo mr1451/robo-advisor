@@ -18,19 +18,6 @@ API_KEY = os.getenv("ALPHAVANTAGE_API_KEY", default="OOPS")
 
 ## DEFINE FUNCTIONS
 
-def to_usd(amount):
-    """
-    Formats value as currency in US dollars.
-
-    Params:
-        n (numeric, like int or float), the number to be formatted in USD
-    
-    Examples:
-        to_usd(412.281)
-        to_usd(0.9842)
-    """
-    return "${0:,.2f}".format(amount)
-
 def compile_url(symbol):
     """
     Takes user inputted symbol and compiles into request url along with API key for AlphaVantage.
@@ -89,6 +76,19 @@ def write_to_csv(rows, csv_filepath):
         for row in rows:
             writer.writerow(row)
     return True
+
+def to_usd(amount):
+    """
+    Formats value as currency in US dollars.
+
+    Params:
+        n (numeric, like int or float), the number to be formatted in USD
+    
+    Examples:
+        to_usd(412.281)
+        to_usd(0.9842)
+    """
+    return "${0:,.2f}".format(amount)
 
 def recommendation(latest_close, recent_low):
     """
