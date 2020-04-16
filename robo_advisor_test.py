@@ -1,7 +1,7 @@
 import os
 import pytest
 
-from app.robo_advisor import compile_url, transform_response, write_to_csv, to_usd, calculations
+from app.robo_advisor import compile_url, transform_response, write_to_csv, to_usd, recommendation, human_friendly_timestamp
 
 CI_ENV = os.environ.get("CI") == "true" # expect default environment variable setting of "CI=true" on Travis CI, see: https://docs.travis-ci.com/user/environment-variables/#default-environment-variables
 
@@ -90,3 +90,13 @@ def test_write_to_csv():
 
 def test_to_usd():
     assert to_usd(123456.8) == "$123,456.80"
+
+#def test_recommendation()
+
+def test_human_friendly_timestamp():
+    """
+    Tests that the human_friendly_timestamp successfully converts the datetime object into an easy-to-read timestamp string.
+    """
+    # it should display the time in an human-friendly format (round to the nearest minute, add AM or PM timestamp)
+    # update by the second
+    assert human_friendly_timestamp != "2020-04-14 05:16 PM"
