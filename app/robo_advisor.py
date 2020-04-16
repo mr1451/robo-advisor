@@ -53,13 +53,11 @@ def compile_url(symbol):
 
 def transform_response(parsed_response):
     """
-    XYZ
+    Identifies key information from parsed response, i.e. the timestamp,  open, close, etc. for the given stock at the given day/time.
 
     Params:
-        XYZ
+        parsed_response (string), the output returned from the function compile_url
     
-    Examples:
-        XYZ
     """
     tsd = parsed_response["Time Series (Daily)"]
     rows = []
@@ -77,13 +75,12 @@ def transform_response(parsed_response):
 
 def write_to_csv(rows, csv_filepath):
     """
-    XYZ
+    Writes the transformed response into a csv file, prices.csv.
 
     Params:
-        XYZ
+        rows (output from function, transform_response)
+        csv_filepath (file path to prices.csv file)
     
-    Examples:
-        XYZ
     """
     csv_headers = ["timestamp", "open", "high", "low", "close", "volume"]
     with open(csv_filepath, "w", newline='') as csv_file:
@@ -95,13 +92,15 @@ def write_to_csv(rows, csv_filepath):
 
 def recommendation(latest_close, recent_low):
     """
-    XYZ
+    Caclulates percent change between latest_close and recent_low for stock to produce recommendation on whether to buy.
 
     Params:
-        XYZ
+        latest_close (numeric, float), the price the stock closed at most recently (day prior)
+        recent_low (numeric, float), the recent low for the stock (that day)
     
     Examples:
-        XYZ
+        def recommendation(100.00, 90.0)
+        def recommendation (45.00, 50.00)
     """
     calculation = (float(latest_close) - float(recent_low))/float(recent_low)
     return calculation
@@ -109,8 +108,10 @@ def recommendation(latest_close, recent_low):
 def human_friendly_timestamp(request_time):
     """
     Reformats checkout date and time in a more human-friendly way (i.e. rounds to nearest minute, includes AM or PM at end of timestamp).
+    
     Params:
         checkout_start_at (a datetime object), the checkout date and time to be returned as a string.
+   
     Examples:
         human_friendly_timestamp(2020-02-02 20:20:20.202020)
         human_friendly_timestamp(1998-05-28 20:30:30.123456)
